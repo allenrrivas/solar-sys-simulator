@@ -2,8 +2,8 @@
 #include <raylib.h>
 
 Ball::Ball() 
-    : x(100)
-    , y(100)
+    : x(0)
+    , y(0)
     , speedX(5)
     , speedY(5)
     , radius(15) 
