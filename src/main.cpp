@@ -20,7 +20,8 @@ int main(void)
     camera.fovy = 45.0f;                                // Camera field-of-view Y
     camera.projection = CAMERA_PERSPECTIVE;             // Camera projection type
 
-    Vector3 spherePosition = { 0.0f, 0.0f, 0.0f };
+    Vector3 mercuryPosition = { 0.0f, 0.0f, 0.0f };
+    Vector3 earthPosition = { 200.0f, 0.0f, 0.0f };
 
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -45,8 +46,9 @@ int main(void)
 
             BeginMode3D(camera);
 
-                DrawSphere(spherePosition, 2.0f, RED);
-                DrawCubeWires(spherePosition, 2.0f, 2.0f, 2.0f, MAROON);
+                DrawSphere(mercuryPosition, 24.4f, RED);
+                DrawSphere(earthPosition, 127.56f, BLUE);
+                DrawCubeWires(mercuryPosition, 2.0f, 2.0f, 2.0f, MAROON);
 
                 DrawGrid(10, 1.0f);
 
