@@ -1,7 +1,7 @@
 # Solar System Simulator
 
-Raylib C++ Starter Template from https://github.com/educ8s/Raylib-CPP-Starter-Template-for-VSCODE-V2s
-It works with raylib version 5.0. Tested on both Windows 10 and Windows 11.
+- Raylib C++ Starter Template from https://github.com/educ8s/Raylib-CPP-Starter-Template-for-VSCODE-V2s
+- It works with raylib version 5.0. Tested on both Windows 10 and Windows 11.
 
 # How to use this template
 
