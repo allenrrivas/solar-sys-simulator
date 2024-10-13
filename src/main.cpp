@@ -7,8 +7,8 @@ int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenWidth = 1280;
+    const int screenHeight = 720;
 
     InitWindow(screenWidth, screenHeight, "Solar System Simulator");
 
@@ -20,8 +20,9 @@ int main(void)
     camera.fovy = 45.0f;                                // Camera field-of-view Y
     camera.projection = CAMERA_PERSPECTIVE;             // Camera projection type
 
-    Vector3 mercuryPosition = { 0.0f, 0.0f, 0.0f };
-    Vector3 earthPosition = { 200.0f, 0.0f, 0.0f };
+    Vector3 sunPosition = { 0.0f, 0.0f, 0.0f };
+    Vector3 mercuryPosition = {200.0f, 0.0f, 0.0f}; 
+    Vector3 venusPosition = { 400.0f, 0.0f, 0.0f };
 
     DisableCursor();                    // Limit cursor to relative movement inside the window
 
@@ -45,10 +46,10 @@ int main(void)
             ClearBackground(RAYWHITE);
 
             BeginMode3D(camera);
-
-                DrawSphere(mercuryPosition, 24.4f, RED);
-                DrawSphere(earthPosition, 127.56f, BLUE);
-                DrawCubeWires(mercuryPosition, 2.0f, 2.0f, 2.0f, MAROON);
+                DrawSphere(sunPosition, 140.0f, ORANGE);
+                DrawSphere(mercuryPosition, 0.488f, RED);
+                DrawSphere(venusPosition, 1.2104f, BLUE);
+                DrawCubeWires(sunPosition, 2.0f, 2.0f, 2.0f, MAROON);
 
                 DrawGrid(10, 1.0f);
 
