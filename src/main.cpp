@@ -13,49 +13,50 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "Solar System Simulator");
 
     // Define the camera to look into our 3d world
-    Camera3D camera = { 0 };
-    camera.position = (Vector3){ 10.0f, 10.0f, 10.0f }; // Camera position
-    camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };      // Camera looking at point
-    camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };          // Camera up vector (rotation towards target)
-    camera.fovy = 45.0f;                                // Camera field-of-view Y
-    camera.projection = CAMERA_PERSPECTIVE;             // Camera projection type
+    Camera3D camera = {0};
+    camera.position = (Vector3){10.0f, 10.0f, 10.0f}; // Camera position
+    camera.target = (Vector3){0.0f, 0.0f, 0.0f};      // Camera looking at point
+    camera.up = (Vector3){0.0f, 1.0f, 0.0f};          // Camera up vector (rotation towards target)
+    camera.fovy = 45.0f;                              // Camera field-of-view Y
+    camera.projection = CAMERA_PERSPECTIVE;           // Camera projection type
 
-    Vector3 sunPosition = { 0.0f, 0.0f, 0.0f };
-    Vector3 mercuryPosition = {200.0f, 0.0f, 0.0f}; 
-    Vector3 venusPosition = { 400.0f, 0.0f, 0.0f };
+    Vector3 sunPosition = {0.0f, 0.0f, 0.0f};
+    Vector3 mercuryPosition = {200.0f, 0.0f, 0.0f};
+    Vector3 venusPosition = {400.0f, 0.0f, 0.0f};
 
-    DisableCursor();                    // Limit cursor to relative movement inside the window
+    DisableCursor(); // Limit cursor to relative movement inside the window
 
-    SetTargetFPS(60);                   // Set our game to run at 60 frames-per-second
+    SetTargetFPS(60); // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
     // Main game loop
-    while (!WindowShouldClose())        // Detect window close button or ESC key
+    while (!WindowShouldClose()) // Detect window close button or ESC key
     {
         // Update
         //----------------------------------------------------------------------------------
         UpdateCamera(&camera, CAMERA_FREE);
 
-        if (IsKeyPressed('Z')) camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };
+        if (IsKeyPressed('Z'))
+            camera.target = (Vector3){0.0f, 0.0f, 0.0f};
         //----------------------------------------------------------------------------------
 
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
-            ClearBackground(RAYWHITE);
+        ClearBackground(RAYWHITE);
 
-            BeginMode3D(camera);
-                DrawSphere(sunPosition, 140.0f, ORANGE);
-                DrawSphere(mercuryPosition, 0.488f, RED);
-                DrawSphere(venusPosition, 1.2104f, BLUE);
-                DrawCubeWires(sunPosition, 2.0f, 2.0f, 2.0f, MAROON);
+        BeginMode3D(camera);
+        DrawSphere(sunPosition, 140.0f, ORANGE);
+        DrawSphere(mercuryPosition, 0.488f, RED);
+        DrawSphere(venusPosition, 1.2104f, BLUE);
+        DrawCubeWires(sunPosition, 2.0f, 2.0f, 2.0f, MAROON);
 
-                DrawGrid(10, 1.0f);
+        DrawGrid(10, 1.0f);
 
-            EndMode3D();
+        EndMode3D();
 
-            DrawFPS(10, 10);
+        DrawFPS(10, 10);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
@@ -63,7 +64,7 @@ int main(void)
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
+    CloseWindow(); // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 
     return 0;

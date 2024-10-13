@@ -24,6 +24,7 @@ public:
     void set_distance_from_sun(double planet_distance_from_sun) { distance_from_sun = planet_distance_from_sun; }
 
     void planet_details();
+    double cal_gravitational_force(double other_mass, double distance);
 
 private:
     std::string name;
