@@ -1,4 +1,7 @@
+#include <iostream>
+
 #include "raylib.h"
+#include "planet.h"
 
 //------------------------------------------------------------------------------------
 // Program main entry point
@@ -24,6 +27,8 @@ int main(void)
     Vector3 mercuryPosition = {200.0f, 0.0f, 0.0f};
     Vector3 venusPosition = {400.0f, 0.0f, 0.0f};
 
+    Planet earth("Earth", 5.972e24, 6.371e6, 86400, 1.496e11);
+
     DisableCursor(); // Limit cursor to relative movement inside the window
 
     SetTargetFPS(60); // Set our game to run at 60 frames-per-second
@@ -44,7 +49,7 @@ int main(void)
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
 
         BeginMode3D(camera);
         DrawSphere(sunPosition, 140.0f, ORANGE);
@@ -56,7 +61,9 @@ int main(void)
 
         EndMode3D();
 
-        DrawFPS(10, 10);
+        earth.planet_info();
+
+        DrawFPS(1000, 10);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
