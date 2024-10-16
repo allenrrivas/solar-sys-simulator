@@ -1,78 +1,26 @@
-#include <iostream>
-
 #include "raylib.h"
 #include "planet.h"
+#include <vector>
 
-//------------------------------------------------------------------------------------
-// Program main entry point
-//------------------------------------------------------------------------------------
-int main(void)
+int main()
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
+    const int screenWidth = 1920;
+    const int screenHeight = 1080;
+    InitWindow(screenWidth, screenHeight, "Solar System Simulation");
 
-    InitWindow(screenWidth, screenHeight, "Solar System Simulator");
+    SetTargetFPS(60);
 
-    // Define the camera to look into our 3d world
-    Camera3D camera = {0};
-    camera.position = (Vector3){10.0f, 10.0f, 10.0f}; // Camera position
-    camera.target = (Vector3){0.0f, 0.0f, 0.0f};      // Camera looking at point
-    camera.up = (Vector3){0.0f, 1.0f, 0.0f};          // Camera up vector (rotation towards target)
-    camera.fovy = 45.0f;                              // Camera field-of-view Y
-    camera.projection = CAMERA_PERSPECTIVE;           // Camera projection type
-
-    Vector3 sunPosition = {0.0f, 0.0f, 0.0f};
-    Vector3 mercuryPosition = {200.0f, 0.0f, 0.0f};
-    Vector3 venusPosition = {400.0f, 0.0f, 0.0f};
-
-    Planet earth("Earth", 5.972e24, 6.371e6, 86400, 1.496e11);
-
-    DisableCursor(); // Limit cursor to relative movement inside the window
-
-    SetTargetFPS(60); // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
-
-    // Main game loop
-    while (!WindowShouldClose()) // Detect window close button or ESC key
+    while (!WindowShouldClose())
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        UpdateCamera(&camera, CAMERA_FREE);
-
-        if (IsKeyPressed('Z'))
-            camera.target = (Vector3){0.0f, 0.0f, 0.0f};
-        //----------------------------------------------------------------------------------
-
-        // Draw
-        //----------------------------------------------------------------------------------
         BeginDrawing();
-
         ClearBackground(BLACK);
 
-        BeginMode3D(camera);
-        DrawSphere(sunPosition, 140.0f, ORANGE);
-        DrawSphere(mercuryPosition, 0.488f, RED);
-        DrawSphere(venusPosition, 1.2104f, BLUE);
-        DrawCubeWires(sunPosition, 2.0f, 2.0f, 2.0f, MAROON);
-
-        DrawGrid(10, 1.0f);
-
-        EndMode3D();
-
-        earth.planet_info();
-
-        DrawFPS(1000, 10);
+        DrawCircle(screenWidth / 2, screenHeight / 2, 40.0f, RED);
 
         EndDrawing();
-        //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow(); // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
+    CloseWindow();
 
     return 0;
 }
