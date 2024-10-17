@@ -8,6 +8,10 @@ int main()
     const int screenHeight = 1080;
     InitWindow(screenWidth, screenHeight, "Solar System Simulation");
 
+    Planet sun(0, 0, 30, YELLOW, 1.9882e30);
+
+    std::vector<Planet> planets = {sun};
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
@@ -15,7 +19,10 @@ int main()
         BeginDrawing();
         ClearBackground(BLACK);
 
-        DrawCircle(screenWidth / 2, screenHeight / 2, 40.0f, RED);
+        for (int i = 0; i <= planets.size(); i++)
+        {
+            planets[i].draw();
+        }
 
         EndDrawing();
     }

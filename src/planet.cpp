@@ -24,4 +24,9 @@ Vector2 Planet::attarction(const Planet &other)
 
 void Planet::update_position(std::vector<Planet> &planets) {}
 
-void Planet::draw() {}
+void Planet::draw()
+{
+    x = x * SCALE + WIDTH / 2;
+    y = y * SCALE + HEIGHT / 2;
+    DrawCircle(x, y, radius, color);
+}
