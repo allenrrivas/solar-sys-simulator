@@ -7,8 +7,8 @@
 #include <vector>
 #include <string>
 
-const int WIDTH = 1920;
-const int HEIGHT = 1080;
+const int WIDTH = 3500;
+const int HEIGHT = 1440;
 const double G = 6.67428e-11;
 const double AU = 149.6e6 * 1000;
 const double SCALE = 250 / AU;     // 1AU = 100 pixels
