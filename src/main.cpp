@@ -9,8 +9,11 @@ int main()
     InitWindow(screenWidth, screenHeight, "Solar System Simulation");
 
     Planet sun(0, 0, 30, YELLOW, 1.9882e30);
+    sun.sun = true;
 
-    std::vector<Planet> planets = {sun};
+    Planet earth(-1 * AU, 0, 16, BLUE, 5.9742e24);
+
+    std::vector<Planet> planets = {sun, earth};
 
     SetTargetFPS(60);
 

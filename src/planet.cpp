@@ -26,7 +26,7 @@ void Planet::update_position(std::vector<Planet> &planets) {}
 
 void Planet::draw()
 {
-    x = x * SCALE + WIDTH / 2;
-    y = y * SCALE + HEIGHT / 2;
-    DrawCircle(x, y, radius, color);
+    double x_ = x * SCALE + WIDTH / 2;
+    double y_ = y * SCALE + HEIGHT / 2;
+    DrawCircle(x_, y_, radius, color);
 }
